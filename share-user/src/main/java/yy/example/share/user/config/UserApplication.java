@@ -1,6 +1,7 @@
 package yy.example.share.user.config;
 
 import lombok.extern.slf4j.Slf4j;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Component;
 @SpringBootApplication
 @ComponentScan("yy.example")
 @Slf4j
+@MapperScan("yy.example.share.*.mapper")
 public class UserApplication {
     public static void main(String[] args) {
         SpringApplication app=new SpringApplication(UserApplication.class);
