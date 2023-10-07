@@ -8,17 +8,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import yy.example.share.common.exception.BusinessException;
 import yy.example.share.common.resp.CommonResp;
+import org.springframework.validation.BindException;
 
 @ControllerAdvice
 @Slf4j
 public class ControllerExceptionHandler {
-    @ExceptionHandler(value = BusinessException.class)
+    @ExceptionHandler(value = BindException.class)
     @ResponseBody
-    public CommonResp<?> exceptionHandler(BusinessException e){
+    public CommonResp<?> exceptionHandler(BindException e){
         CommonResp<?> commonResp=new CommonResp<>();
-        log.error("系统异常",e);
+        log.error("校验异常: {}",e.getBindingResult().getAllErrors().get(0).getDefaultMessage());
         commonResp.setSuccess(false);
-        commonResp.setMessage(e.getE().getDesc());
+        commonResp.setMessage(e.getBindingResult().getAllErrors().get(0).getDefaultMessage());
         return commonResp;
     }
 }
