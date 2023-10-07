@@ -21,5 +21,5 @@ public class User {
     private String avatarUrl;
     private Integer bonus;
     private Date createTime;
-    private Data updateTime;
+    private Date updateTime;
 }

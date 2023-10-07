@@ -1,6 +1,3 @@
-POST http://localhost:8000/user-service/user/login
-Content-Type: application/json
-
-{
-  "password": "123123"
-}
+GET http://localhost:8000/user-service/user/count
+Accept: application/json
+token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYmYiOjE2OTY2NzI1ODgsInBob25lIjoiMTM5NTE5MDUxNzEiLCJpZCI6MSwiZXhwIjoxNjk2NzcyNTg4LCJpYXQiOjE2OTY2NzI1ODh9.nG1q7-zPOml6eNH0D0KSGNYb_ilTJGUR44dXcvN3vxk
