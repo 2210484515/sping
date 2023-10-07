@@ -1,10 +1,9 @@
 package yy.example.share.user.controller;
 
 import jakarta.annotation.Resource;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import yy.example.share.user.domain.dto.LoginDTO;
+import yy.example.share.user.domain.entity.User;
 import yy.example.share.user.service.UserService;
 
 @RestController
@@ -15,5 +14,9 @@ public class UserController {
     @GetMapping("/count")
     public Long count(){
         return userService.count();
+    }
+    @PostMapping("/login")
+    public User login(@RequestBody LoginDTO loginDTO){
+        return userService.login(loginDTO);
     }
 }
